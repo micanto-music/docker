@@ -67,7 +67,8 @@ RUN a2enmod rewrite
 #RUN cp -R /tmp/koel/. /var/www/html \
 #  && chown -R www-data:www-data /var/www/html \
 
-RUN chown -R www-data:www-data /var/www/html \
+RUN cp -R /tmp/micanto-1.0.0/. /var/www/html \
+  && chown -R www-data:www-data /var/www/html
 
 # Volumes for the music files and search index
 # This declaration must be AFTER creating the folders and setting their permissions
