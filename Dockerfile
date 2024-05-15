@@ -34,7 +34,6 @@ RUN apt-get update \
   # ctype, curl, fileinfo, json, mbstring, openssl, tokenizer and xml are already activated in the base image
   && docker-php-ext-install \
     bcmath \
-    dom \
     exif \
     filter \
     gd \
