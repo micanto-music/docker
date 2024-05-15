@@ -60,6 +60,7 @@ COPY ./apache.conf /etc/apache2/sites-available/000-default.conf
 # Copy php.ini
 COPY ./php.ini "$PHP_INI_DIR/php.ini"
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+COPY ./.env /var/www/html/.env
 # /usr/local/etc/php/php.ini
 
 # Deploy Apache configuration
