@@ -22,7 +22,7 @@ services:
     database:
         image: mariadb:10.11
         volumes:
-            - db:/var/lib/mysql
+            - ./mariadb:/var/lib/mysql
         environment:
             - MYSQL_ROOT_PASSWORD=yourrootpassword
             - MYSQL_DATABASE=micanto
