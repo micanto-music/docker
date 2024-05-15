@@ -2,12 +2,11 @@ version: '3'
 
 services:
     micanto:
-        build:
-            context: .
+        image: arinas/micanto:latest
         depends_on:
             - database
         ports:
-            - 81:80
+            - 80:80
         environment:
             - DB_CONNECTION=mysql
             - DB_HOST=database
