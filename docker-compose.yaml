@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+    micanto:
+        build:
+            context: .
+        depends_on:
+            - database
+        ports:
+            - 80:80
+        environment:
+            - DB_CONNECTION=mysql
+            - DB_HOST=database
+            - DB_USERNAME=micanto
+            - DB_PASSWORD={nl'4/Pgr[q{VL5N
+            - DB_DATABASE=micanto
+        volumes:
+            - music:/music
+            - img:/var/www/html/public/img
+            - search_index:/var/www/html/storage/search-indexes
+
+    database:
+        image: mariadb:10.11
+        volumes:
+            - db:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=EAz&y?Hbua_|eI/J
+            - MYSQL_DATABASE=micanto
+            - MYSQL_USER=micanto
+            - MYSQL_PASSWORD={nl'4/Pgr[q{VL5N
+
+volumes:
+    db:
+        driver: local
+    music:
+        driver: local
+    img:
+        driver: local
+    search_index:
+        driver: local
