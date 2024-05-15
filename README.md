@@ -8,7 +8,8 @@ It installs the latest micanto php/react app in the container.
    * `music` - the folder with your music files
    * `img` - a folder where micanto will save the covers from artists, albums, playlists and users
    * `mariadb` - your database data will be stored outside of docker to persist
-3. Change the username/password data in the `docker-compose.yaml` for your needs
+   * `search_index` - the sqlite files with your search index
+4. Change the username/password data in the `docker-compose.yaml` for your needs
 4. Let docker compose your application: `docker compose up -d`
 
 That's all!
