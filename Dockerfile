@@ -33,18 +33,14 @@ RUN apt-get update \
   # https://laravel.com/docs/10.x/deployment#server-requirements
   # ctype, curl, fileinfo, json, mbstring, openssl, tokenizer and xml are already activated in the base image
   && docker-php-ext-install \
-    bcmath \
-    exif \
-    filter \
-    gd \
-    hash \
-    pcre \
-    pdo \
-    pdo_mysql \
-    pdo_pgsql \
-    pgsql \
-    session \
-    zip \
+     bcmath \
+     exif \
+     gd \
+     pdo \
+     pdo_mysql \
+     pdo_pgsql \
+     pgsql \
+     zip \
   && apt-get clean \
   # Create the music volume so it has the correct permissions
   && mkdir /music \
