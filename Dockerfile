@@ -50,7 +50,6 @@ RUN apt-get update \
   && mkdir -p /var/www/html/storage/search-indexes \
   && chown www-data:www-data /var/www/html/storage/search-indexes \
   # Set locale to prevent removal of non-ASCII path characters when transcoding with ffmpeg
-  # See https://github.com/koel/docker/pull/91
   && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
   && /usr/sbin/locale-gen
 
@@ -67,11 +66,16 @@ COPY ./.env /var/www/html/.env
 RUN a2enmod rewrite
 
 # Copy the downloaded release
-#RUN cp -R /tmp/koel/. /var/www/html \
-#  && chown -R www-data:www-data /var/www/html \
+RUN cp -R /tmp/micanto-1.0.0/. /var/www/html
 
-RUN cp -R /tmp/micanto-1.0.0/. /var/www/html \
-  && chown -R www-data:www-data /var/www/html
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php composer-setup.php \
+    && php -r "unlink('composer-setup.php');" \
+    && mv composer.phar /usr/local/bin/composer \
+    && composer install
+
+
+RUN chown -R www-data:www-data /var/www/html
 
 # Volumes for the music files and search index
 # This declaration must be AFTER creating the folders and setting their permissions
