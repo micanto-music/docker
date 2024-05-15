@@ -1,8 +1,8 @@
 # The runtime image.
 FROM php:8.2-apache-bullseye
 
-# Install vim for easier editing/debugging
-RUN apt-get update && apt-get install -y vim
+# Install nano for easier editing/debugging
+RUN apt-get update && apt-get install -y nano
 
 # Download micanto release
 RUN curl -L https://github.com/micanto-music/micanto/archive/refs/tags/v1.0.0.tar.gz | tar -xz -C /tmp \
@@ -31,10 +31,9 @@ RUN apt-get update \
     libpq-dev \
   && docker-php-ext-configure gd --with-jpeg \
   # https://laravel.com/docs/10.x/deployment#server-requirements
-  # ctype, fileinfo, json, mbstring, openssl, tokenizer and xml are already activated in the base image
+  # ctype, curl, fileinfo, json, mbstring, openssl, tokenizer and xml are already activated in the base image
   && docker-php-ext-install \
     bcmath \
-    curl \
     dom \
     exif \
     filter \
