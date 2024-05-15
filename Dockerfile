@@ -45,7 +45,6 @@ RUN apt-get update \
     pdo_pgsql \
     pgsql \
     session \
-    xml \
     zip \
   && apt-get clean \
   # Create the music volume so it has the correct permissions
