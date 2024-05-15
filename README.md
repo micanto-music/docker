@@ -15,4 +15,4 @@ It installs the latest micanto php/react app in the container.
 That's all!
 Happy listening to your music
 
-This image is for using behind a reverse proxy. You can change the posts in docker-compose.yaml to 443 if you want to use it directly with ssl. But then you have to add the certificates by yourself.
+This image is for using behind a reverse proxy. You can change the ports in docker-compose.yaml to 443 if you want to use it directly with ssl. But then you have to add the certificates by yourself.
